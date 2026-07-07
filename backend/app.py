@@ -6,6 +6,8 @@ import pymysql
 import redis
 from flask import Flask, jsonify, request
 
+
+
 app = Flask(__name__)
 
 MYSQL_HOST = os.environ["MYSQL_HOST"]
