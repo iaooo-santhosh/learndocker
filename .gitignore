@@ -16,3 +16,4 @@ backend/venv/
 .DS_Store
 *.log
 .~lock.*#
+# notes: gitignore covers node_modules, pycache, env files
