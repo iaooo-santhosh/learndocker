@@ -1,0 +1,18 @@
+# Node / Angular
+node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Python
+__pycache__/
+*.pyc
+backend/venv/
+
+# Env & secrets
+.env
+*.env.local
+
+# OS/editor
+.DS_Store
+*.log
+.~lock.*#

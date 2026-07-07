@@ -1,0 +1,88 @@
+											DOCKER VS KUBERNETES
+
+
+Docker
+1) Build containers
+2) Run containers
+3) Stop containers
+4) Delete containers
+
+
+Download img from registry: docker pull <img_name>
+Upload img to registry: docker push <img_name>
+Build all services : docker compose build
+Build and start containers immediately: docker compose up --build
+Build a specific service: docker compose build <service_name>
+start all stopped containers(uses compose.yml): docker compose up -d
+start mentioned containers (which are stopped): docker start <containerName1/Id1> <containerName2/Id2> ...
+create and run image with a new containerName: docker run -d  --name redis2 redis:7-alpine
+Restart a container: docker restart <containerName/Id>
+Rename a img_name: docker tag <img_name> <new_img_name>
+Gracefully stop the container(s): docker stop <containerName/Id>
+Immediate termination of container(s): docker kill <containerName/Id>
+Remove container: docker rm <containerName/Id>
+Run command inside container: docker exec -it <container> bash
+Detailed container info: docker inspect <containerName/Id
+View logs: docker logs <containerName/Id>
+View detailed info about img: dokcer inspect <img_name>
+
+Compose Cmds
+docker compose ps: list compose containers
+docker compose stop: containers are stopped, containers still exist, network still exists
+docker compose start: restart all stopped containers in compose file
+docker compose down: stop and remove everything in docker compose file
+docker compose logs: view logs
+docker compose restart: restart services
+
+Network Cmds:
+docker network ls: list networks
+docker network create <name>: create network
+docker network inspect <name>: network details
+docker network rm <name>: delete network
+
+Volume CmdS:
+docker volume ls: list volumes
+docker volume create <name>: create volume
+docker volume inspect <name>: volume details
+docker volume rm <name>: delete volume
+
+Kubernetes
+1) Handles if any container crashes
+2) Handles if any server crashes
+3) Auto scales (increases or decreases containers' count)
+4) Rolling updates
+5) Load balancing
+6) Figures out where each service is
+
+
+Simple comparison: Docker vs Docker Compose vs Kubernetes
+Tool				Purpose
+Docker			Run one container
+Docker Compose		Run multiple containers on one machine
+Kubernetes		Run many containers across many machines
+
+
+
+Kubernetes
+Two Components:
+1) Control Plane - Brain of Kubernetes
+2) Worker Node - machines where actual application container(s) run
+
+Concepts:
+Pod 		- Smallest unit in Kubernetes. One pod runs one container.
+Deployment 	- Manages Pods. 
+Service 	- Pods are temporary. A Pod can die and come back with a new IP address.So you should not connect directly to Pod IPs. Kubernetes gives a stable name using Service.
+
+Service Types:
+1) ClusterIP - only accessible inside Kubernetes cluster
+2) NodePort -  Exposes a service on every node using a fixed port
+3) LoadBalancer - Used in cloud environment. It creates an external load balancer
+4) Headless Service - Used when each pod needs its own identity
+5) ConfigMap -  Stores non-secret configuration
+6) Secret - Stores sensitive data
+7) Volume - PersistentVolumeClaim (PVC)
+8) Ingress - Exposes HTTP/HTTPS apps to the outside world. It is mainly for HTTP/HTTPS traffic.
+9) Namespace - Logical separation inside Kubernetes
+10) StatefulSet - Deployment is good for stateless apps. But some apps need stable identity and stable storage.
+
+
